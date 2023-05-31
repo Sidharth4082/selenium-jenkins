@@ -3,15 +3,16 @@ pipeline {
 	tools {  
 	  dockerTool 'mydocker'
 	}
-	stages {
-	  stage('Example') {
-	    steps {
-		  sh 'docker --version'
-		}
-      stage('Build')
-        steps {
-            sh 'docker build -t pyhtonapp:v1 .'
+    stages {
+        stage('Hello') {
+            steps {
+                sh 'docker --version'
+            }
         }
-	}
-}
+		stage("Build") {
+			steps {
+				sh 'docker build -t python:v1 .'
+			}
+		}
+    }
 }
